@@ -1,7 +1,3 @@
-// 4 types of nucleotides  A, C, G, and T
-
-// calculate time to find all possible k-mers for specified length 'lenStr'
-
 let KMER = 10;
 
 const convert = (c) => {
