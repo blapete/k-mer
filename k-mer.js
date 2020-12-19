@@ -2,6 +2,8 @@
 
 // calculate time to find all possible k-mers for specified length 'lenStr'
 
+let KMER = 10;
+
 const convert = (c) => {
     if (c == 'A') return 'C';
     if (c == 'C') return 'G';
@@ -12,13 +14,13 @@ const convert = (c) => {
 let opt = 'ACGT';
 let s = '';
 let sLast = '';
-let lenStr = 13;
 
-for (let i = 0; i < lenStr; i++) {
+
+for (let i = 0; i < KMER; i++) {
     s += opt[0];
 }
 
-for (let i = 0; i < lenStr; i++) {
+for (let i = 0; i < KMER; i++) {
     sLast += opt[opt.length - 1];
 }
 
@@ -32,7 +34,7 @@ console.time('Run')
 while (s != sLast) {
     counter += 1
     changeNext = true;
-    for (let i = 0; i < lenStr; i++) {
+    for (let i = 0; i < KMER; i++) {
         if (changeNext) {
             if (s[i] == opt[opt.length - 1]) {
                 s = s.slice(0, i) + convert(s[i]) + s.slice(i + 1);
@@ -48,4 +50,4 @@ while (s != sLast) {
 
 console.timeEnd('Run')
 
-console.log(`${counter} possible k-mers of length ${lenStr}`);
+console.log(`${counter} possible k-mers of length ${KMER}`);
