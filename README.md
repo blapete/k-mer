@@ -8,15 +8,15 @@ Calculate the time to find all possible combinations for a k-mer of different le
 
 ### Example:<br>
 
-length - 1<br>
-total k-mers - 4<br>
+length: 1<br>
+total k-mers: 4<br>
 A
 C
 G
 T
 
-length - 2 <br>
-total k-mers - 16<br>
+length: 2 <br>
+total k-mers: 16<br>
 AA
 CA
 GA
