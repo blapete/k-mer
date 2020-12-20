@@ -28,28 +28,24 @@ do {
 
 
 let counter = 1;
-let changeNext;
 
-console.time('Run')
+
+console.time('Run');
 
 
 while (x != y) {
-    counter += 1
-    changeNext = true;
+    counter++;
     for (let i = 0; i < KMER; i++) {
-        if (changeNext) {
-            if (x[i] == base[base.length - 1]) {
-                x = x.slice(0, i) + convert(x[i]) + x.slice(i + 1);
-                changeNext = true;
-            } else {
-                x = x.slice(0, i) + convert(x[i]) + x.slice(i + 1);
-                break;
-            }
-        }
-    }
-}
+        if (x[i] == base[base.length - 1]) {
+            x = x.slice(0, i) + convert(x[i]) + x.slice(i + 1);
+        } else {
+            x = x.slice(0, i) + convert(x[i]) + x.slice(i + 1);
+            break;
+        };
+    };
+};
 
 
-console.timeEnd('Run')
+console.timeEnd('Run');
 
 console.log(`${counter} possible k-mers of length ${KMER}`);
