@@ -1,4 +1,4 @@
-let KMER = 10;
+const KMER = 10;
 
 const convert = (c) => {
     if (c == 'A') return 'C';
@@ -7,36 +7,42 @@ const convert = (c) => {
     if (c == 'T') return 'A';
 };
 
-let opt = 'ACGT';
-let s = '';
-let sLast = '';
+const base = 'ACGT';
+let x = '';
+let y = '';
+let z;
+
+z = 0;
+do {
+    z += 1;
+    x += base[0];
+} while (z < KMER);
 
 
-for (let i = 0; i < KMER; i++) {
-    s += opt[0];
-}
 
-for (let i = 0; i < KMER; i++) {
-    sLast += opt[opt.length - 1];
-}
+z = 0;
+do {
+    z += 1;
+    y += base[base.length - 1];
+} while (z < KMER);
 
-let pos = 0;
+
 let counter = 1;
 let changeNext;
 
 console.time('Run')
 
 
-while (s != sLast) {
+while (x != y) {
     counter += 1
     changeNext = true;
     for (let i = 0; i < KMER; i++) {
         if (changeNext) {
-            if (s[i] == opt[opt.length - 1]) {
-                s = s.slice(0, i) + convert(s[i]) + s.slice(i + 1);
+            if (x[i] == base[base.length - 1]) {
+                x = x.slice(0, i) + convert(x[i]) + x.slice(i + 1);
                 changeNext = true;
             } else {
-                s = s.slice(0, i) + convert(s[i]) + s.slice(i + 1);
+                x = x.slice(0, i) + convert(x[i]) + x.slice(i + 1);
                 break;
             }
         }
