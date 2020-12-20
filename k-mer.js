@@ -35,7 +35,6 @@ console.time('Run');
 
 while (x != y) {
     counter++;
-    console.log(x);
     for (let i = 0; i < KMER; i++) {
         if (x[i] == base[base.length - 1]) {
             x = x.slice(0, i) + convert(x[i]) + x.slice(i + 1);
